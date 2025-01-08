@@ -3,7 +3,11 @@ import { fetchImagesByAlbumId } from "@/helper/images"
 import { notFound } from "next/navigation"
 
 
-async function page({params}:{params:{id:number}}) {
+async function page({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
     const {id}=await params
     const image=await fetchImagesByAlbumId(id)
 

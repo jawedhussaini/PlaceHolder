@@ -6,7 +6,7 @@ import { fetchPosts } from "@/helper/fetchData";
 
 
 
-export default async function Home(  { searchParams }: { searchParams: { page?: number } }) { 
+export default async function Home(  { searchParams }: { searchParams: Promise<{ page?: number }>}) { 
     const {page}=await searchParams 
 
 

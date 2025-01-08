@@ -8,7 +8,7 @@ import { Container } from "@mantine/core"
 import { notFound } from "next/navigation"
 
 
-async function Page({params,searchParams}:{params:{id:number}, searchParams:{page:number}}) {
+async function Page({params,searchParams}:{params:Promise<{id:number}>, searchParams:Promise<{page:number}>}) {
     const {id}=await params
     const {page}=await searchParams
   

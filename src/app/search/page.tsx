@@ -2,12 +2,12 @@ import Posts from "@/components/landing/Posts"
 import { getSraechedTitle } from "@/helper/getSraechedTitle"
 
 
-async function page({searchParams}:{searchParams:{query:string}}) {
+async function page({searchParams}:{searchParams:Promise<{query:string}>}) {
     const {query}=await searchParams
 
     const search=await getSraechedTitle(query)
 
-    
+   
 
     return (
         <div>
