@@ -1,0 +1,25 @@
+.name{
+    background: rgb(97, 97, 250);
+    padding: 5px;
+    border-radius: 20px;
+    color: white;
+}
+.hedears{
+    color: rgb(53, 53, 255);
+    font-weight:bold;
+}
+.box{
+    border-radius: 40px;
+
+}
+.details{
+     display: block;
+  line-height: 1;
+  padding: 10px 14px; /* Adjust rem here */
+  border-radius: var(--mantine-radius-lg);
+  text-decoration: none;
+  color: white; /* Replace lightdark with actual colors */
+  font-size: var(--mantine-font-size-md);
+  font-weight: 500;
+  background: rgb(53, 53, 255);
+}
