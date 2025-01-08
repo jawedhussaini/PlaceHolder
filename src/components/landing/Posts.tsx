@@ -15,7 +15,7 @@ interface postsProps{
     posts:Posts[],
     title:string,
     description:string,
-    cols?:any 
+    cols?:object
     totlal:number
     page?:number
 

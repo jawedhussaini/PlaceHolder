@@ -14,7 +14,7 @@ interface Images {
   thumbnailUrl: string;
 }
 
-function SingleImage({ id, title, url, thumbnailUrl }: Images) {
+function SingleImage({ title, url, thumbnailUrl }: Images) {
   const [opened, { close, open }] = useDisclosure(false);
   const [image, setImage] = useState<string>("");
 

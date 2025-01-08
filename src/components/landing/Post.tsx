@@ -12,7 +12,7 @@ interface Posts{
     title:string,
     body:string
 }
-function Post({userId,id,title,body}:Posts) {
+function Post({id,title,body}:Posts) {
 
   
     return (

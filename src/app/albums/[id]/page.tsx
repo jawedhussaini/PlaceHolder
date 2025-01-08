@@ -11,7 +11,7 @@ async function page({params}:{params:{id:number}}) {
           notFound()
         }
     return (
-
+        
         <Images images={image} title="Images By Album" description="you can find all images by album in here" />
     
     )

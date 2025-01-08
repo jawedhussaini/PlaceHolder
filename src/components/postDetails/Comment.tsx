@@ -8,7 +8,7 @@ interface Comment {
     email: string;
     body: string;
 }
-function SingleComment({postId,id,name,email,body}:Comment) {
+function SingleComment({name,email,body}:Comment) {
     
     return (
     <Card  shadow="sm"  padding="lg" radius="md" w="100%" withBorder>

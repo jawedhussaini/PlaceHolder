@@ -10,7 +10,7 @@ interface AlbumProps{
     albums: Albums[],
     description: string,
     title: string,
-    cols?:any
+    cols?:object
 }
 
 function Albums({albums,description,title,cols}:AlbumProps) {

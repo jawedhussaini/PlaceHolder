@@ -20,7 +20,7 @@ interface PostDetailsProps {
 }
 function PostDetails({ post, user,border }: PostDetailsProps) {
 
-    const {addPost,posts}=usePostStore()
+    const {addPost}=usePostStore()
 
        useEffect(() => {
     
