@@ -1,4 +1,5 @@
 import { Modal, Loader, Center, Text } from "@mantine/core";
+import Image from "next/image";
 import { useState } from "react";
 
 interface ModalForImageProps {
@@ -31,7 +32,7 @@ function ModalForImage({ opened, image, onClose }: ModalForImageProps) {
         )}
 
         {!error ? (
-          <img
+          <Image
             height={450}
             width={450}
             src={image}

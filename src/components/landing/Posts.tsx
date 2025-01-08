@@ -21,7 +21,7 @@ interface postsProps{
 
     
 }
-async function Posts({posts,title,description,cols,totlal,page}:postsProps) {
+async function Posts({posts,title,description,cols,totlal}:postsProps) {
     
       return (
     <Container className={classes.wrapper}>
