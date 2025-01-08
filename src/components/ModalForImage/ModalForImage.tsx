@@ -12,20 +12,21 @@ function ModalForImage({ opened, image, onClose }: ModalForImageProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const handleImageLoad = () => {
+  const handleImageError = () => {
+   
     setLoading(false);
-    setError(false); 
+    setError(true);
   };
 
-  const handleImageError = () => {
+  const handleLoadingComplete = () => {
+ 
     setLoading(false);
-    setError(true); 
   };
 
   return (
     <Modal opened={opened} size="auto" onClose={onClose} p="md" title="Image Preview">
       <div style={{ height: 450, width: 450, position: "relative" }}>
-        {loading && !error && (
+        {loading && (
           <Center style={{ height: "100%", width: "100%", position: "absolute" }}>
             <Loader size="lg" />
           </Center>
@@ -37,13 +38,13 @@ function ModalForImage({ opened, image, onClose }: ModalForImageProps) {
             width={450}
             src={image}
             alt="Full Image"
-            style={{ display: loading ? "none" : "block", objectFit: "contain" }}
-            onLoad={handleImageLoad}
+            style={{ display: "block", objectFit: "contain" }}
             onError={handleImageError}
+            onLoadingComplete={handleLoadingComplete}
           />
         ) : (
           <Center w={"100%"} h={"100%"}>
-            <Text size="lg" c="red">
+            <Text size="lg" color="red">
               Unable to load the image. <br />
               Please try again later.
             </Text>
