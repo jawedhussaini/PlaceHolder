@@ -8,7 +8,11 @@ import { Container } from "@mantine/core"
 import { notFound } from 'next/navigation'
 
 
-async function pages({params}:{params:{id:number}}) {
+async function pages({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
     const {id}=await params
 
     const posts=await fetchPostsByID(id)

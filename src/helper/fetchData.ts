@@ -17,7 +17,7 @@ export async function fetchPosts(page: number = 1) {
     if (data.length % limit !== 0) {
       totalPages = totalPages + 1;
     }
-    console.log(totalPages)
+    console.log(totalPages);
     const paginatedData = data.slice(start, end);
     return {
       posts: paginatedData,
@@ -28,7 +28,7 @@ export async function fetchPosts(page: number = 1) {
   }
 }
 
-export async function fetchPostsByID(id: number) {
+export async function fetchPostsByID(id: string) {
   try {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/posts/" + id
@@ -40,21 +40,20 @@ export async function fetchPostsByID(id: number) {
   }
 }
 
-
 interface fetchPostsByUserIdProps {
-  id?:number,
-  page?:number
+  id?: number;
+  page?: number;
 }
 
-export async function fetchPostsByUserId({id,page=1}:fetchPostsByUserIdProps) {
-
-
+export async function fetchPostsByUserId({
+  id,
+  page = 1,
+}: fetchPostsByUserIdProps) {
   const limit = 9;
   const baseURL = "https://jsonplaceholder.typicode.com/posts?userId=" + id;
-  
+
   const start = (page - 1) * limit;
   const end = start + limit;
-
 
   try {
     const response = await fetch(`${baseURL}`);
@@ -65,7 +64,7 @@ export async function fetchPostsByUserId({id,page=1}:fetchPostsByUserIdProps) {
     }
 
     const data = await response.json();
-  
+
     let totalPages = data.length / limit;
     if (data.length % limit !== 0) {
       totalPages = totalPages + 1;

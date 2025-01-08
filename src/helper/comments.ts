@@ -1,4 +1,4 @@
-export async function fetchCommentsByPostId(id: number) {
+export async function fetchCommentsByPostId(id: string) {
   try {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/comments?postId=" + id
