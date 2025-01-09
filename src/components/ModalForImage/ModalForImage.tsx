@@ -1,30 +1,41 @@
+"use client";
+
 import { Modal, Loader, Center, Text } from "@mantine/core";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState } from "react";
 
 interface ModalForImageProps {
   opened: boolean;
   image: string;
-  onClose: () => void;
 }
 
-function ModalForImage({ opened, image, onClose }: ModalForImageProps) {
+function ModalForImage({ opened, image }: ModalForImageProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const router = useRouter(); // Initialize the Next.js router
 
   const handleImageError = () => {
-   
     setLoading(false);
     setError(true);
   };
 
   const handleLoadingComplete = () => {
- 
     setLoading(false);
   };
 
+  const handleClose = () => {
+    router.back(); // Navigate back to the previous page
+  };
+
   return (
-    <Modal opened={opened} size="auto" onClose={onClose} p="md" title="Image Preview">
+    <Modal
+      opened={opened}
+      size="auto"
+      onClose={handleClose} // Trigger navigation on modal close
+      p="md"
+      title="Image Preview"
+    >
       <div style={{ height: 450, width: 450, position: "relative" }}>
         {loading && (
           <Center style={{ height: "100%", width: "100%", position: "absolute" }}>

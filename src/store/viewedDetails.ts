@@ -10,7 +10,7 @@ interface Posts {
 interface PostsState {
   posts: Posts[];
   addPost: (post: Posts) => void;
-  removePost: (id: number) => void;
+
   clearPosts: () => void;
 }
 const usePostStore = create<PostsState>((set) => ({
@@ -21,8 +21,7 @@ const usePostStore = create<PostsState>((set) => ({
       if (state.posts.find((p) => p.id === post.id)) return state;
       return { posts: [...state.posts, post] };
     }),
-  removePost: (id: number) =>
-    set((state) => ({ posts: state.posts.filter((post) => post.id !== id) })),
+
   clearPosts: () => set({ posts: [] }),
 }));
 

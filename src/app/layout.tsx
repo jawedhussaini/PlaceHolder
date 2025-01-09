@@ -20,9 +20,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+    modal,
+}:{
   children: React.ReactNode;
-}>) {
+   modal: React.ReactNode
+}) {
   return (
    <html lang="en">
       <head>
@@ -49,7 +51,9 @@ export default function RootLayout({
         ]}
       />
       </LandingContainer>
+             
               {children}
+               {modal}
           </MantineProvider>
         </DirectionProvider>
       </body>

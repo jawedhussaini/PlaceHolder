@@ -5,6 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import ModalForImage from "../ModalForImage/ModalForImage";
 import classes from "./Images.module.css";
+import Link from "next/link";
 
 interface Images {
   albumId: number;
@@ -14,26 +15,24 @@ interface Images {
   thumbnailUrl: string;
 }
 
-function SingleImage({ title, url, thumbnailUrl }: Images) {
-  const [opened, { close, open }] = useDisclosure(false);
-  const [image, setImage] = useState<string>("");
+function SingleImage({ title, id, thumbnailUrl }: Images) {
+
 
   return (
     <>
-      <ModalForImage opened={opened} image={image} onClose={close} />
+     
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Flex gap="md" justify="center" align="center" direction="row">
+          <Link href={`/photo/${id}`}>
           <Image
-            onClick={() => {
-              setImage(url);
-              open();
-            }}
+          
             className={classes.image}
             width={50}
             height={50}
             src={thumbnailUrl} // Use `thumbnailUrl` for small image
             alt={title}
           />
+          </Link>
           <Text>{title}</Text>
         </Flex>
       </Card>
